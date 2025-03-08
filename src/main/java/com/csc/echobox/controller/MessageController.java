@@ -115,7 +115,7 @@ public class MessageController {
 	}
 
 	@GetMapping("read-messages")
-	public ResponseEntity<String> readMessages(@RequestParam("id") Long id) {
+	public ResponseEntity<String> readMessages(@PathVariable("id") Long id) {
 		Message message = messageService.getMessage(id);
 		if (message == null) {
 			return ResponseEntity.badRequest().body("Message not found");

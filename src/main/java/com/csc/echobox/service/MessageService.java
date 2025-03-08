@@ -21,7 +21,7 @@ public class MessageService {
 	
 	public String getAllMessages() {
 		List<Message> messages = repo.findAll();
-		String out = "{\n 'message': 'for media, use the id to get the media with the /api/media/{id} route' \n";
+		String out = "{\n 'message': 'for media, use the id to get the media with the /api/media/id route' \n";
 		for (Message message : messages) {
 			out += "[";
 			
