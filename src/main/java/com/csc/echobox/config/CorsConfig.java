@@ -22,7 +22,6 @@ public class CorsConfig {
 
         // Read and split the allowed origins from the .env variable
         List<String> origins = List.of(allowedOrigins.split(","));
-        origins.add("*");
 
         config.setAllowedOriginPatterns(origins);
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));

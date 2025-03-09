@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.csc.echobox.models.Message;
+import com.csc.echobox.models.Messages;
 import com.csc.echobox.service.MessageService;
 
 import org.springframework.http.HttpHeaders;
@@ -31,11 +32,12 @@ public class MessageController {
 	}
 
 	@GetMapping("/get-messages")
-	public ResponseEntity<String> getMessages() {
-		String msg = messageService.getAllMessages();
-		 return ResponseEntity.ok()
-		            .header("Content-Type", "application/json")
-		            .body(msg);
+	public ResponseEntity<List<Messages>> getMessages() {
+		List<Messages> msg = messageService.getAllMessages();
+		
+		 return new ResponseEntity<List<Messages>>(msg,HttpStatus.OK);
+		            
+		   
 	}
 
 	@PostMapping("/add-message")
